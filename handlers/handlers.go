@@ -51,15 +51,17 @@ func ClientPulling(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	res := models.ClientPullingResponse{CrocCodePhrase: "wack"}
+	res := models.ClientPullingResponse{CrocCodePhrase: "wack-abce"}
 
 	crocExecutable, _ := exec.LookPath("croc")
 	cmdGoVer := &exec.Cmd{
 		Path:   crocExecutable,
-		Args:   []string{crocExecutable, "--version"},
+		Args:   []string{crocExecutable, "send", "--code", "wack-abce", "test.txt"},
 		Stdout: os.Stdout,
 		Stderr: os.Stdout,
 	}
+
+	json.NewEncoder(w).Encode(res)
 
 	err = cmdGoVer.Run()
 
@@ -67,5 +69,4 @@ func ClientPulling(w http.ResponseWriter, r *http.Request) {
 		log.Println("Error running command")
 	}
 
-	json.NewEncoder(w).Encode(res)
 }
