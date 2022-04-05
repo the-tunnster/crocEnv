@@ -18,5 +18,5 @@ type ClientPushingResponse struct {
 }
 
 type ClientPullingResponse struct {
-	CrocCodePhrase        string `json:"code-phrase"`
+	CrocCodePhrase string `json:"code-phrase"`
 }

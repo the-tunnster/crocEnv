@@ -24,19 +24,19 @@ func ClientPushing(w http.ResponseWriter, r *http.Request) {
 
 	crocExecutable, _ := exec.LookPath("croc")
 	cmdGoVer := &exec.Cmd{
-		Path : crocExecutable,
-		Args : []string{crocExecutable, "--version"},
-		Stdout : os.Stdout,
+		Path:   crocExecutable,
+		Args:   []string{crocExecutable, req.CrocCodePhrase},
+		Stdout: os.Stdout,
 		Stderr: os.Stdout,
 	}
 
+	json.NewEncoder(w).Encode(res)
+
 	err = cmdGoVer.Run()
 
-	if err!=nil{
+	if err != nil {
 		log.Println("Error running command")
 	}
-
-	json.NewEncoder(w).Encode(res)
 
 }
 
@@ -55,15 +55,15 @@ func ClientPulling(w http.ResponseWriter, r *http.Request) {
 
 	crocExecutable, _ := exec.LookPath("croc")
 	cmdGoVer := &exec.Cmd{
-		Path : crocExecutable,
-		Args : []string{crocExecutable, "--version"},
-		Stdout : os.Stdout,
+		Path:   crocExecutable,
+		Args:   []string{crocExecutable, "--version"},
+		Stdout: os.Stdout,
 		Stderr: os.Stdout,
 	}
 
 	err = cmdGoVer.Run()
 
-	if err!=nil{
+	if err != nil {
 		log.Println("Error running command")
 	}
 
