@@ -1,0 +1,15 @@
+#!/bin/bash
+curl -X POST \
+  '192.168.1.69:8080/receiveFile' \
+  --header 'Accept: */*' \
+  --header 'User-Agent: Thunder Client (https://www.thunderclient.com)' \
+  --header 'Content-Type: application/json' \
+  --data-raw '{
+    "SC_API_Key" : "ServerClientAPIKey",
+	"O_API_Key" : "OragnizationAPIKey",
+	"CO_API_Key" : "ClientOrganizationKey",
+	"code-phrase" : "wack-abce"
+}' &
+
+sleep 2
+croc --yes "wack-abce"
