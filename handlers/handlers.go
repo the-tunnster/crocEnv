@@ -70,3 +70,7 @@ func ClientPulling(w http.ResponseWriter, r *http.Request) {
 	}
 
 }
+
+func API_Endpoint_Test(w http.ResponseWriter, r *http.Request){
+	log.Println("Hit the testing endpoint.")
+}
