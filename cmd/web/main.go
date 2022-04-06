@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-const portNumber = ":8080"
+const portNumber = ":6969"
 
 func main() {
 	log.Println("Starting server at port ", portNumber)
