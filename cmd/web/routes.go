@@ -13,7 +13,7 @@ func routes() http.Handler{
 	mux.Post("/sendFile", handlers.ClientPushing)
 	mux.Post("/receiveFile", handlers.ClientPulling)
 
-	mux.Post("/testing", handlers.API_Endpoint_Test)
+	mux.Get("/testFlow", handlers.TestFlow)
 
 	return mux
 }
